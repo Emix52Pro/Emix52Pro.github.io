@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>𝕹𝖆𝖙𝖚𝖗𝖖𝖚𝖎𝖒𝖎𝖆 𝕰𝖘𝖘𝖊𝖓𝖙𝖎𝖆𝖑𝖘</title>
+  <style>
+    .text-shadow {
+      text-shadow: 0.5px 0.5px 0 white;
+    }
+    /* Smooth transitions for hover effects */
+    .transition-all {
+      transition: all 0.3s ease-in-out;
+    }
+    /* Style for the active page */
+    .active {
+      color: #FBBF24; /* Change to a highlighted color */
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100">
+  <!-- Navbar -->
+  <nav class="bg-gray-900 text-white p-4">
+    <div class="container mx-auto flex items-center">
+      <!-- Logo -->
+      <a href="index.html" class="text-2xl font-bold flex items-center space-x-1 lg:text-2xl text-xl">
+        <span class="text-red-700 text-shadow">𝕹𝖆𝖙𝖚𝖗𝖖𝖚𝖎𝖒𝖎𝖆</span>
+        <span class="text-green-500 text-shadow">𝕰𝖘𝖘𝖊𝖓𝖙𝖎𝖆𝖑𝖘</span>
+      </a>
+  
+      <!-- Desktop Menu (centered) -->
+      <div class="hidden lg:flex space-x-6 flex-grow justify-center">
+        <a href="index.html" class="hover:text-gray-400 transition-all">Inicio</a>
+        <a href="products.html" class="hover:text-gray-400 transition-all">Productos</a>
+        <a href="about.html" class="hover:text-gray-400 transition-all">Sobre Nosotros</a>
+        <a href="contact.html" class="hover:text-gray-400 transition-all">Contáctanos</a>
+      </div>
+  
+      <!-- Icons Section (right aligned) -->
+      <div class="flex space-x-4 items-center ml-auto">
+        <!-- Cart Icon -->
+        <a href="shoppingcart.html" class="hover:text-gray-400 transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </a>
+        <!-- Profile Icon -->
+        <a href="#" class="hover:text-gray-400 transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </a>
+  
+        <!-- Mobile Menu Button -->
+        <button id="burger" class="lg:hidden block text-white focus:outline-none">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden lg:hidden mt-4">
+      <a href="home.html" class="block text-white py-2 hover:text-gray-400 transition-all">Inicio</a>
+      <a href="products.html" class="block text-white py-2 hover:text-gray-400 transition-all">Productos</a>
+      <a href="about.html" class="block text-white py-2 hover:text-gray-400 transition-all">Sobre Nosotros</a>
+      <a href="contact.html" class="block text-white py-2 hover:text-gray-400 transition-all">Contáctanos</a>
+    </div>
+  </nav>
+  
+  <!-- Main content -->
+  <main class="flex-grow container mx-auto p-4">
+    <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Contáctanos</h1>
+  
+    <div class="flex flex-col lg:flex-row justify-between space-y-6 lg:space-y-0 lg:space-x-12">
+  
+      <!-- WhatsApp Contact -->
+      <div class="bg-white p-6 shadow-lg rounded-lg flex items-center space-x-4">
+        <img class="w-12 h-12 object-cover rounded-full" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp Logo">
+        <div>
+          <h2 class="text-xl font-semibold">WhatsApp</h2>
+          <p class="text-gray-600">Envía un mensaje directo por WhatsApp</p>
+          <a href="https://wa.me/1234567890" target="_blank" class="text-green-500 hover:underline">+12 3456 7890</a>
+        </div>
+      </div>
+  
+      <!-- X (Twitter) Contact -->
+      <div class="bg-white p-6 shadow-lg rounded-lg flex items-center space-x-4">
+        <img class="w-12 h-12 object-cover rounded-full" src="resources\twitter.png" alt="Twitter Logo">
+        <div>
+          <h2 class="text-xl font-semibold">X (Twitter)</h2>
+          <p class="text-gray-600">Síguenos en Twitter</p>
+          <a href="https://x.com/naturquimia" target="_blank" class="text-blue-500 hover:underline">@naturquimia</a>
+        </div>
+      </div>
+  
+      <!-- Email Contact -->
+      <div class="bg-white p-6 shadow-lg rounded-lg flex items-center space-x-4">
+        <img class="w-12 h-12 object-cover rounded-full" src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Logo">
+        <div>
+          <h2 class="text-xl font-semibold">Correo Electrónico</h2>
+          <p class="text-gray-600">Envía un email</p>
+          <a href="mailto:contacto@naturquimia.com" class="text-indigo-500 hover:underline">contacto@naturquimia.com</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+
+  <footer class="bg-gray-900 text-white text-center py-4">
+    <p>© 2024 Naturquimia Essentials. Todos los derechos reservados.</p>
+  </footer>
+
+
+  <!-- WhatsApp Button -->
+  <div class="fixed bottom-4 right-4 z-10">
+    <a href="#" title="Realiza Pedidos En WhatsApp" target="_blank" class="block w-16 h-16 rounded-full shadow-lg transform hover:scale-110 transition-all">
+      <img class="object-cover object-center w-full h-full rounded-full" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp Logo">
+    </a>
+  </div>
+
+  <!-- Burger Menu Script -->
+  <script>
+    // Toggle mobile menu visibility
+    document.getElementById('burger').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Highlight the active page link
+    const currentPage = window.location.pathname.split('/').pop();
+    const links = document.querySelectorAll('nav a');
+    
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

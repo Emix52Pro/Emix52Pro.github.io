@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>𝕹𝖆𝖙𝖚𝖗𝖖𝖚𝖎𝖒𝖎𝖆 𝕰𝖘𝖘𝖊𝖓𝖙𝖎𝖆𝖑𝖘</title>
+  <style>
+    .text-shadow {
+      text-shadow: 0.5px 0.5px 0 white;
+    }
+    /* Smooth transitions for hover effects */
+    .transition-all {
+      transition: all 0.3s ease-in-out;
+    }
+    /* Style for the active page */
+    .active {
+      color: #FBBF24; /* Change to a highlighted color */
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100">
+  <!-- Navbar -->
+  <nav class="bg-gray-900 text-white p-4">
+    <div class="container mx-auto flex items-center">
+      <!-- Logo -->
+      <a href="index.html" class="text-2xl font-bold flex items-center space-x-1 lg:text-2xl text-xl">
+        <span class="text-red-700 text-shadow">𝕹𝖆𝖙𝖚𝖗𝖖𝖚𝖎𝖒𝖎𝖆</span>
+        <span class="text-green-500 text-shadow">𝕰𝖘𝖘𝖊𝖓𝖙𝖎𝖆𝖑𝖘</span>
+      </a>
+  
+      <!-- Desktop Menu (centered) -->
+      <div class="hidden lg:flex space-x-6 flex-grow justify-center">
+        <a href="index.html" class="hover:text-gray-400 transition-all">Inicio</a>
+        <a href="products.html" class="hover:text-gray-400 transition-all">Productos</a>
+        <a href="about.html" class="hover:text-gray-400 transition-all">Sobre Nosotros</a>
+        <a href="contact.html" class="hover:text-gray-400 transition-all">Contáctanos</a>
+      </div>
+  
+      <!-- Icons Section (right aligned) -->
+      <div class="flex space-x-4 items-center ml-auto">
+        <!-- Cart Icon -->
+        <a href="shoppingcart.html" class="hover:text-gray-400 transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </a>
+        <!-- Profile Icon -->
+        <a href="#" class="hover:text-gray-400 transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </a>
+  
+        <!-- Mobile Menu Button -->
+        <button id="burger" class="lg:hidden block text-white focus:outline-none">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden lg:hidden mt-4">
+      <a href="home.html" class="block text-white py-2 hover:text-gray-400 transition-all">Inicio</a>
+      <a href="products.html" class="block text-white py-2 hover:text-gray-400 transition-all">Productos</a>
+      <a href="about.html" class="block text-white py-2 hover:text-gray-400 transition-all">Sobre Nosotros</a>
+      <a href="contact.html" class="block text-white py-2 hover:text-gray-400 transition-all">Contáctanos</a>
+    </div>
+  </nav>
+  
+  <!-- Main content -->
+  <main class="flex-grow container mx-auto p-4">
+    <!-- Hero Section -->
+    <section class="relative bg-cover bg-center h-[40vh] rounded-lg" style="background-image: url('resources/banner.png');">
+      <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white px-4">
+        <h1 class="text-4xl font-bold mb-4">Bienvenido a Naturquimia Essentials</h1>
+        <p class="text-lg mb-6">Productos naturales para el cuidado de tu piel y bienestar</p>
+        <a href="products.html" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg">Descubre Nuestros Productos</a>
+      </div>
+    </section>
+    
+  
+    <!-- Products Section -->
+    <section class="mt-10">
+      <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Productos Perfectos Para Tu Salud</h2>
+  
+      <div class="flex flex-wrap justify-center space-x-4">
+
+        <!-- Jabón 1 -->
+        <div class="card bg-white shadow-lg rounded-lg w-80 snap-start flex flex-col">
+            <img class="h-60 w-full object-cover rounded-t-lg" src="resources/Jabon1.png" alt="Jabon 1">
+            <div class="p-4 flex flex-col flex-grow justify-between">
+                <div>
+                    <h4 class="text-xl font-bold">JABÓN LIQUIDO DERMOLIMPIADOR</h4>
+                    <p class="text-gray-600 mb-2">Limpia y nutre tu piel con nuestro jabón líquido dermolimpiador. Formulado con extracto de consuelda y agentes limpiadores suaves, este jabón proporciona una limpieza efectiva sin resecar la piel.</p>
+                    <p class="text-lg font-semibold">$7.00</p>
+                </div>
+                <!-- Botón para añadir al carrito -->
+                <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
+                    Añadir al carrito
+                </button>
+            </div>
+        </div>
+    
+        <!-- Crema 1 -->
+        <div class="card bg-white shadow-lg rounded-lg w-80 snap-start flex flex-col">
+            <img class="h-60 w-full object-cover rounded-t-lg" src="resources/Crema1.png" alt="Crema 1">
+            <div class="p-4 flex flex-col flex-grow justify-between">
+                <div>
+                    <h4 class="text-xl font-bold">CREMA HUMECTANTE</h4>
+                    <p class="text-gray-600 mb-2">Crema de avanzada tecnología, clínicamente comprobada que retiene el agua de la piel previniendo la pérdida de humedad.</p>
+                    <p class="text-lg font-semibold">$12.00</p>
+                </div>
+                <!-- Botón para añadir al carrito -->
+                <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
+                    Añadir al carrito
+                </button>
+            </div>
+        </div>
+    
+        <!-- Ungüento 1 -->
+        <div class="card bg-white shadow-lg rounded-lg w-80 snap-start flex flex-col">
+            <img class="h-60 w-full object-cover rounded-t-lg" src="resources/Unguento1.png" alt="Ungüento 1">
+            <div class="p-4 flex flex-col flex-grow justify-between">
+                <div>
+                    <h4 class="text-xl font-bold">Ungüento Analgésico</h4>
+                    <p class="text-gray-600 mb-2">Para alivio temporal del dolor asociado con la osteoartritis, artritis reumatoide, bursitis, esguinces, distensiones, dolor muscular, dolor de espalda.</p>
+                    <p class="text-lg font-semibold">$10.00</p>
+                </div>
+                <!-- Botón para añadir al carrito -->
+                <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
+                    Añadir al carrito
+                </button>
+            </div>
+        </div>
+    
+    </div>
+    
+    </section>
+  
+    <!-- Testimonials Section -->
+    <section class="mt-16 bg-gray-200 py-12 rounded-lg">
+      <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Lo que dicen nuestros clientes</h2>
+  
+      <div class="flex flex-wrap justify-center gap-8">
+        <div class="bg-white p-6 shadow-lg rounded-lg w-72">
+          <p class="text-gray-700 italic">"El jabón dermolimpiador es increíble. Deja mi piel suave y fresca, además de que huele delicioso."</p>
+          <p class="text-gray-800 font-semibold mt-4">- María G.</p>
+        </div>
+        <div class="bg-white p-6 shadow-lg rounded-lg w-72">
+          <p class="text-gray-700 italic">"La crema hidratante ha sido un cambio radical para mi piel. No puedo dejar de usarla."</p>
+          <p class="text-gray-800 font-semibold mt-4">- Juan P.</p>
+        </div>
+        <div class="bg-white p-6 shadow-lg rounded-lg w-72">
+          <p class="text-gray-700 italic">"Me encantan los productos de Naturquimia. Son naturales y realmente efectivos."</p>
+          <p class="text-gray-800 font-semibold mt-4">- Laura R.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+
+  <footer class="bg-gray-900 text-white text-center py-4">
+    <p>© 2024 Naturquimia Essentials. Todos los derechos reservados.</p>
+  </footer>
+
+
+  <!-- WhatsApp Button -->
+  <div class="fixed bottom-4 right-4 z-10">
+    <a href="#" title="Realiza Pedidos En WhatsApp" target="_blank" class="block w-16 h-16 rounded-full shadow-lg transform hover:scale-110 transition-all">
+      <img class="object-cover object-center w-full h-full rounded-full" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp Logo">
+    </a>
+  </div>
+
+  <!-- Burger Menu Script -->
+  <script>
+    // Toggle mobile menu visibility
+    document.getElementById('burger').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Highlight the active page link
+    const currentPage = window.location.pathname.split('/').pop();
+    const links = document.querySelectorAll('nav a');
+    
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

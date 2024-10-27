@@ -19,6 +19,7 @@
       font-weight: bold;
     }
   </style>
+    <script type="module" src="/Emix52Pro.github.io/Services/profileMenu.js"></script>
 </head>
 <body class="flex flex-col min-h-screen bg-gray-100">
   <!-- Navbar -->
@@ -46,13 +47,19 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
         </a>
-        <!-- Profile Icon -->
-        <a href="#" class="hover:text-gray-400 transition-all">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </a>
-  
+      <!-- Profile Icon -->
+      <a href="#" id="profile-btn" class="relative hover:text-gray-400 transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </a>
+
+      <!-- Floating Menu -->
+      <div id="profile-menu" class="absolute right-4 top-14 mt-2 w-48 bg-white rounded-md shadow-lg hidden z-10">
+        <a href="login.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Iniciar Sesión</a>
+        <a href="register.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Registrarse</a>
+      </div>
+
         <!-- Mobile Menu Button -->
         <button id="burger" class="lg:hidden block text-white focus:outline-none">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -194,5 +201,7 @@
       }
     });
   </script>
+
+
 </body>
 </html>

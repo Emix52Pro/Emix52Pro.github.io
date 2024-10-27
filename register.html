@@ -20,6 +20,12 @@
     body {
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     }
+    #user-email {
+    font-weight: bold;
+    margin: 0.5rem;
+    text-align: center;
+    }
+
   </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -50,18 +56,21 @@
           </svg>
         </a>
 
-        <!-- Profile Icon -->
-        <a href="#" id="profile-btn" class="relative hover:text-gray-400 transition-all">
+      <!-- Profile Icon and Menu Container -->
+      <div class="relative">
+        <a href="#" id="profile-btn" class="hover:text-gray-400 transition-all">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </a>
 
-        <!-- Floating Profile Menu -->
-        <div id="profile-menu" class="absolute right-4 top-14 mt-2 w-48 bg-white rounded-md shadow-lg hidden z-10">
-          <a href="login.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Iniciar Sesión</a>
-          <a href="register.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Registrarse</a>
+        <!-- Floating Menu -->
+        <div id="profile-menu" class="absolute right-0 top-full mt-2 min-w-[300px] bg-white rounded-md shadow-lg hidden z-50">
+          <a href="login.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-100 text-lg">Iniciar Sesión</a>
+          <a href="register.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-100 text-lg">Registrarse</a>
         </div>
+      </div>
+
 
         <!-- Mobile Menu Button -->
         <button id="burger" class="lg:hidden block text-white focus:outline-none">
@@ -105,7 +114,7 @@
       <div class="mt-6 text-center">
         <p class="text-gray-600">o regístrate con</p>
         <button id="googleRegister" class="mt-4 w-full flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Google_Icon.png" class="w-6 h-6 mr-2" alt="Google logo"> Google
+          <img src="resources/google.png" class="w-6 h-6 mr-2" alt="Google logo"> Google
         </button>
       </div>
     </div>

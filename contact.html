@@ -22,14 +22,14 @@
 </head>
 <body class="flex flex-col min-h-screen bg-gray-100">
   <!-- Navbar -->
-  <nav class="bg-gray-900 text-white p-4">
+  <nav class="bg-gray-900 text-white p-4 shadow-lg fixed w-full top-0 z-50">
     <div class="container mx-auto flex items-center">
       <!-- Logo -->
       <a href="index.html" class="text-2xl font-bold flex items-center space-x-1 lg:text-2xl text-xl">
         <span class="text-red-700 text-shadow">𝕹𝖆𝖙𝖚𝖗𝖖𝖚𝖎𝖒𝖎𝖆</span>
         <span class="text-green-500 text-shadow">𝕰𝖘𝖘𝖊𝖓𝖙𝖎𝖆𝖑𝖘</span>
       </a>
-  
+
       <!-- Desktop Menu (centered) -->
       <div class="hidden lg:flex space-x-6 flex-grow justify-center">
         <a href="index.html" class="hover:text-gray-400 transition-all">Inicio</a>
@@ -37,7 +37,7 @@
         <a href="about.html" class="hover:text-gray-400 transition-all">Sobre Nosotros</a>
         <a href="contact.html" class="hover:text-gray-400 transition-all">Contáctanos</a>
       </div>
-  
+
       <!-- Icons Section (right aligned) -->
       <div class="flex space-x-4 items-center ml-auto">
         <!-- Cart Icon -->
@@ -46,13 +46,23 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
         </a>
-        <!-- Profile Icon -->
-        <a href="#" class="hover:text-gray-400 transition-all">
+
+      <!-- Profile Icon and Menu Container -->
+      <div class="relative">
+        <a href="#" id="profile-btn" class="hover:text-gray-400 transition-all">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </a>
-  
+
+        <!-- Floating Menu -->
+        <div id="profile-menu" class="absolute right-0 top-full mt-2 min-w-[300px] bg-white rounded-md shadow-lg hidden z-50">
+          <a href="login.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-100 text-lg">Iniciar Sesión</a>
+          <a href="register.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-100 text-lg">Registrarse</a>
+        </div>
+      </div>
+
+
         <!-- Mobile Menu Button -->
         <button id="burger" class="lg:hidden block text-white focus:outline-none">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -61,7 +71,7 @@
         </button>
       </div>
     </div>
-  
+
     <!-- Mobile Menu (Hidden by default) -->
     <div id="mobile-menu" class="hidden lg:hidden mt-4">
       <a href="index.html" class="block text-white py-2 hover:text-gray-400 transition-all">Inicio</a>
@@ -122,24 +132,28 @@
     </a>
   </div>
 
-  <!-- Burger Menu Script -->
+  <script type="module" src="Services/auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    // Toggle mobile menu visibility
     document.getElementById('burger').addEventListener('click', function() {
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('hidden');
     });
 
-    // Highlight the active page link
     const currentPage = window.location.pathname.split('/').pop();
     const links = document.querySelectorAll('nav a');
-    
     links.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === currentPage) {
+      if (link.getAttribute('href') === currentPage) {
         link.classList.add('active');
       }
     });
+
+    const profileBtn = document.getElementById('profile-btn');
+    const profileMenu = document.getElementById('profile-menu');
+    profileBtn.addEventListener('click', function() {
+      profileMenu.classList.toggle('hidden');
+    });
   </script>
+  
 </body>
 </html>

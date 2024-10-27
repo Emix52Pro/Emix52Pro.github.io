@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>𝕹𝖆𝖙𝖚𝖗𝖖𝖚𝖎𝖒𝖎𝖆 𝕰𝖘𝖘𝖊𝖓𝖙𝖎𝖆𝖑𝖘</title>
+  <style>
+    .text-shadow {
+      text-shadow: 0.5px 0.5px 0 white;
+    }
+    .transition-all {
+      transition: all 0.3s ease-in-out;
+    }
+    .active {
+      color: #FBBF24;
+      font-weight: bold;
+    }
+    /* Background gradient */
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    #user-email {
+    font-weight: bold;
+    margin: 0.5rem;
+    text-align: center;
+    }
+
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-gray-900 text-white p-4 shadow-lg fixed w-full top-0 z-50">
+    <div class="container mx-auto flex items-center">
+      <!-- Logo -->
+      <a href="index.html" class="text-2xl font-bold flex items-center space-x-1 lg:text-2xl text-xl">
+        <span class="text-red-700 text-shadow">𝕹𝖆𝖙𝖚𝖗𝖖𝖚𝖎𝖒𝖎𝖆</span>
+        <span class="text-green-500 text-shadow">𝕰𝖘𝖘𝖊𝖓𝖙𝖎𝖆𝖑𝖘</span>
+      </a>
+
+      <!-- Desktop Menu (centered) -->
+      <div class="hidden lg:flex space-x-6 flex-grow justify-center">
+        <a href="index.html" class="hover:text-gray-400 transition-all">Inicio</a>
+        <a href="products.html" class="hover:text-gray-400 transition-all">Productos</a>
+        <a href="about.html" class="hover:text-gray-400 transition-all">Sobre Nosotros</a>
+        <a href="contact.html" class="hover:text-gray-400 transition-all">Contáctanos</a>
+      </div>
+
+      <!-- Icons Section (right aligned) -->
+      <div class="flex space-x-4 items-center ml-auto">
+        <!-- Cart Icon -->
+        <a href="shoppingcart.html" class="hover:text-gray-400 transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </a>
+
+      <!-- Profile Icon and Menu Container -->
+      <div class="relative">
+        <a href="#" id="profile-btn" class="hover:text-gray-400 transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </a>
+
+        <!-- Floating Menu -->
+        <div id="profile-menu" class="absolute right-0 top-full mt-2 min-w-[300px] bg-white rounded-md shadow-lg hidden z-50">
+          <a href="login.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-100 text-lg">Iniciar Sesión</a>
+          <a href="register.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-100 text-lg">Registrarse</a>
+        </div>
+      </div>
+
+
+        <!-- Mobile Menu Button -->
+        <button id="burger" class="lg:hidden block text-white focus:outline-none">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden lg:hidden mt-4">
+      <a href="index.html" class="block text-white py-2 hover:text-gray-400 transition-all">Inicio</a>
+      <a href="products.html" class="block text-white py-2 hover:text-gray-400 transition-all">Productos</a>
+      <a href="about.html" class="block text-white py-2 hover:text-gray-400 transition-all">Sobre Nosotros</a>
+      <a href="contact.html" class="block text-white py-2 hover:text-gray-400 transition-all">Contáctanos</a>
+    </div>
+  </nav>
+
+ <!-- Main Content -->
+ <main class="flex-grow container mx-auto p-4 mt-20">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md mx-auto">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Iniciar Sesión</h2>
+
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label for="loginEmail" class="block text-gray-700 font-semibold mb-1">Correo electrónico</label>
+          <input type="email" id="loginEmail" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-green-500">
+        </div>
+      
+        <div>
+          <label for="loginPassword" class="block text-gray-700 font-semibold mb-1">Contraseña</label>
+          <input type="password" id="loginPassword" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-green-500">
+        </div>
+      
+        <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg">
+          Iniciar Sesión
+        </button>
+      </form>
+      
+
+      <div class="mt-6 text-center">
+        <p class="text-gray-600">o inicia sesión con</p>
+        <button id="googleLogin" class="mt-4 w-full flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
+          <img src="resources/google.png" class="w-6 h-6 mr-2" alt="Google logo"> Google
+        </button>
+      </div>
+
+      <div id="user-email" class="text-center mt-4 text-gray-800 font-semibold"></div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-900 text-white text-center py-4 mt-12">
+    <p>© 2024 Naturquimia Essentials. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <div class="fixed bottom-4 right-4 z-10">
+    <a href="#" title="Realiza Pedidos En WhatsApp" target="_blank" class="block w-16 h-16 rounded-full shadow-lg transform hover:scale-110 transition-all">
+      <img class="object-cover object-center w-full h-full rounded-full" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp Logo">
+    </a>
+  </div>
+
+  <script type="module" src="Services/auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    document.getElementById('burger').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    const currentPage = window.location.pathname.split('/').pop();
+    const links = document.querySelectorAll('nav a');
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+
+    const profileBtn = document.getElementById('profile-btn');
+    const profileMenu = document.getElementById('profile-menu');
+    profileBtn.addEventListener('click', function() {
+      profileMenu.classList.toggle('hidden');
+    });
+  </script>
+  
+
+</body>
+</html>

@@ -18,17 +18,27 @@ const auth = getAuth(app);
 // Registro con correo y contraseña
 const registerForm = document.getElementById("registerForm");
 registerForm.addEventListener("submit", async (e) => {
-  e.preventDefault(); // Evita la recarga de la página
+  e.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    alert("¡Registro exitoso!");
-    window.location.href = "index.html"; // Redirige al usuario a la página principal
+    Swal.fire({
+      icon: "success",
+      title: "¡Registro exitoso!",
+      text: "Te has registrado correctamente.",
+      confirmButtonText: "Aceptar"
+    }).then(() => {
+      window.location.href = "index.html";
+    });
   } catch (error) {
-    console.error("Error al registrar:", error); // Muestra el error en consola para depurar
-    alert(`Error: ${error.message}`);
+    Swal.fire({
+      icon: "error",
+      title: "Error en el registro",
+      text: error.message,
+      confirmButtonText: "Intentar de nuevo"
+    });
   }
 });
 
@@ -38,12 +48,22 @@ googleRegister.addEventListener("click", async () => {
   const provider = new GoogleAuthProvider();
   try {
     const userCredential = await signInWithPopup(auth, provider);
-    alert("¡Registro exitoso con Google!");
-    window.location.href = "index.html"; // Redirige al usuario a la página principal
+    Swal.fire({
+      icon: "success",
+      title: "¡Registro exitoso con Google!",
+      text: "Te has registrado correctamente.",
+      confirmButtonText: "Aceptar"
+    }).then(() => {
+      window.location.href = "index.html";
+    });
   } catch (error) {
-    console.error("Error en Google Sign-In:", error); // Muestra el error en consola para depurar
-    alert(`Error: ${error.message}`);
+    Swal.fire({
+      icon: "error",
+      title: "Error en Google Sign-In",
+      text: error.message,
+      confirmButtonText: "Intentar de nuevo"
+    });
   }
 });
-console.log("Firebase app initialized:", app);
+
 

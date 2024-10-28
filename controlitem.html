@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>𝕹𝖎𝖙𝖚𝖗𝖖𝖚𝖎𝖒𝖎𝖆 𝕰𝖘𝖘𝖊𝖓𝖙𝖎𝖆𝖑𝖘</title>
+  <style>
+    .text-shadow {
+      text-shadow: 0.5px 0.5px 0 white;
+    }
+    .transition-all {
+      transition: all 0.3s ease-in-out;
+    }
+    .active {
+      color: #FBBF24; /* Change to a highlighted color */
+      font-weight: bold;
+    }
+    .scroll-smooth {
+    scroll-behavior: smooth;
+    }
+    
+    #jabones-carousel,
+    #cremas-carousel,
+    #unguentos-carousel {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    #jabones-carousel::-webkit-scrollbar,
+    #cremas-carousel::-webkit-scrollbar,
+    #unguentos-carousel::-webkit-scrollbar {
+      display: none;
+    }
+    
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100">
+  <nav class="bg-gray-900 text-white p-4 shadow-lg fixed w-full top-0 z-50">
+    <div class="container mx-auto flex items-center">
+      <a href="index.html" class="text-2xl font-bold flex items-center space-x-1 lg:text-2xl text-xl">
+        <span class="text-red-700 text-shadow">𝕹𝖎𝖙𝖚𝖗𝖖𝖚𝖎𝖒𝖎𝖆</span>
+        <span class="text-green-500 text-shadow">𝕰𝖘𝖘𝖊𝖓𝖙𝖎𝖆𝖑𝖘</span>
+      </a>
+
+      <div class="hidden lg:flex space-x-6 flex-grow justify-center">
+        <a href="index.html" class="hover:text-gray-400 transition-all">Inicio</a>
+        <a href="products.html" class="hover:text-gray-400 transition-all">Productos</a>
+        <a href="about.html" class="hover:text-gray-400 transition-all">Sobre Nosotros</a>
+        <a href="contact.html" class="hover:text-gray-400 transition-all">Contáctanos</a>
+      </div>
+
+      <div class="flex space-x-4 items-center ml-auto">
+        <a href="shoppingcart.html" class="hover:text-gray-400 transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </a>
+
+        <div class="relative">
+          <a href="#" id="profile-btn" class="hover:text-gray-400 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </a>
+
+          <div id="profile-menu" class="absolute right-0 top-full mt-2 min-w-[300px] bg-white rounded-md shadow-lg hidden z-50">
+            <a href="login.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-100 text-lg">Iniciar Sesión</a>
+            <a href="register.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-100 text-lg">Registrarse</a>
+          </div>
+        </div>
+
+        <button id="burger" class="lg:hidden block text-white focus:outline-none">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden mt-4">
+      <a href="index.html" class="block text-white py-2 hover:text-gray-400 transition-all">Inicio</a>
+      <a href="products.html" class="block text-white py-2 hover:text-gray-400 transition-all">Productos</a>
+      <a href="about.html" class="block text-white py-2 hover:text-gray-400 transition-all">Sobre Nosotros</a>
+      <a href="contact.html" class="block text-white py-2 hover:text-gray-400 transition-all">Contáctanos</a>
+    </div>
+  </nav>
+  
+<!-- Replace the existing main content with this -->
+<main class="container mx-auto p-6 mt-20">
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="text-3xl font-bold">Control de Inventario</h1>
+    <button onclick="abrirModalProducto()" 
+    class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+    </svg>
+    Agregar Producto
+    </button>
+  
+  </div>
+  
+  <!-- Jabones Carousel -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">Jabones</h2>
+    <div class="relative">
+      <div id="jabones-carousel" class="flex overflow-x-hidden scroll-smooth gap-4">
+        <!-- Products will be loaded here -->
+      </div>
+      <button onclick="scrollCarousel('jabones-carousel', 'left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r">←</button>
+      <button onclick="scrollCarousel('jabones-carousel', 'right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l">→</button>
+    </div>
+  </div>
+
+  <!-- Cremas Carousel -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">Cremas</h2>
+    <div class="relative">
+      <div id="cremas-carousel" class="flex overflow-x-hidden scroll-smooth gap-4">
+        <!-- Products will be loaded here -->
+      </div>
+      <button onclick="scrollCarousel('cremas-carousel', 'left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r">←</button>
+      <button onclick="scrollCarousel('cremas-carousel', 'right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l">→</button>
+    </div>
+  </div>
+
+  <!-- Unguentos Carousel -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">Unguentos</h2>
+    <div class="relative">
+      <div id="unguentos-carousel" class="flex overflow-x-hidden scroll-smooth gap-4">
+        <!-- Products will be loaded here -->
+      </div>
+      <button onclick="scrollCarousel('unguentos-carousel', 'left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r">←</button>
+      <button onclick="scrollCarousel('unguentos-carousel', 'right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l">→</button>
+    </div>
+  </div>
+</main>
+
+<!-- Modal Agregar Producto -->
+<div id="modalAgregarProducto" class="hidden fixed z-50 inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+  <div class="bg-white p-6 rounded-lg w-96">
+    <h2 class="text-2xl font-semibold mb-4">Agregar Producto</h2>
+    <form id="formProducto">
+      <!-- Hidden input for product ID (used in edit mode) -->
+      <input type="hidden" id="productoId">
+
+      <label class="block mb-2">Nombre:</label>
+      <input type="text" id="nombre" class="border p-2 w-full mb-4" required>
+
+      <label class="block mb-2">Descripción:</label>
+      <textarea id="descripcion" class="border p-2 w-full mb-4" required></textarea>
+
+      <label class="block mb-2">Precio:</label>
+      <input type="number" id="precio" class="border p-2 w-full mb-4" step="0.01" min="0" required>
+
+      <label class="block mb-2">Stock:</label>
+      <input type="number" id="stock" class="border p-2 w-full mb-4" min="0" required>
+
+      <label class="block mb-2">Imagen URL:</label>
+      <input type="url" id="imagen" class="border p-2 w-full mb-4" required>
+
+      <label class="block mb-2">Categoría:</label>
+      <select id="categoria" class="border p-2 w-full mb-4" required>
+        <option value="">Seleccione una categoría</option>
+        <option value="jabon">Jabón</option>
+        <option value="crema">Crema</option>
+        <option value="unguento">Unguento</option>
+      </select>
+
+      <div class="flex justify-end space-x-2">
+        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
+          Guardar
+        </button>
+        <button type="button" onclick="cerrarModalProducto()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script type="module" src="Services/products.js"></script>
+<script type="module" src="Services/auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.getElementById('burger').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    const currentPage = window.location.pathname.split('/').pop();
+    const links = document.querySelectorAll('nav a');
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+
+    const profileBtn = document.getElementById('profile-btn');
+    const profileMenu = document.getElementById('profile-menu');
+    profileBtn.addEventListener('click', function() {
+      profileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+  
+</body>
+</html>

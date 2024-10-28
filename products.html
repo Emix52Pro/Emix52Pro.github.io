@@ -23,17 +23,42 @@
     #jabones-carousel,
     #cremas-carousel,
     #unguentos-carousel {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+        display: flex;
+        overflow-x: auto; /* Permite el desplazamiento horizontal */
     }
+
     
-    #jabones-carousel::-webkit-scrollbar,
-    #cremas-carousel::-webkit-scrollbar,
-    #unguentos-carousel::-webkit-scrollbar {
-      display: none;
-    }
+  #jabones-carousel,
+  #cremas-carousel,
+  #unguentos-carousel {
+    display: flex;
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    scroll-behavior: smooth; /* Desplazamiento suave */
+  }
+
     
   </style>
+  <script>
+    // Otras funciones y código aquí...
+  
+    function scrollCarousel(carouselId, direction) {
+      const carousel = document.getElementById(carouselId);
+      const scrollAmount = 200; // Ajusta esta cantidad para el desplazamiento que desees
+  
+      if (direction === 'left') {
+        carousel.scrollBy({
+          left: -scrollAmount,
+          behavior: 'smooth'
+        });
+      } else if (direction === 'right') {
+        carousel.scrollBy({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
+      }
+    }
+  </script>
+  
 </head>
 <body class="flex flex-col min-h-screen bg-gray-100">
   <nav class="bg-gray-900 text-white p-4 shadow-lg fixed w-full top-0 z-50">
@@ -94,8 +119,8 @@
       <div id="jabones-carousel" class="flex overflow-x-hidden scroll-smooth gap-4">
         <!-- Products will be loaded here -->
       </div>
-      <button onclick="scrollCarousel('jabones-carousel', 'left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r">←</button>
-      <button onclick="scrollCarousel('jabones-carousel', 'right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l">→</button>
+      <button onclick="scrollCarousel('jabones-carousel', 'left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded">←</button>
+      <button onclick="scrollCarousel('jabones-carousel', 'right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded">→</button>
     </div>
   </div>
 

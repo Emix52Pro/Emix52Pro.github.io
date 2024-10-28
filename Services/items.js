@@ -27,10 +27,10 @@ onAuthStateChanged(auth, user => {
 
 async function loadProducts() {
   const querySnapshot = await getDocs(productsCollection);
-
+  
   // Crear contenedores por categoría
   const categories = { jabon: [], crema: [], unguento: [] };
-
+  
   // Clasificar productos en sus respectivas categorías
   querySnapshot.forEach((doc) => {
     const data = doc.data();
@@ -117,10 +117,9 @@ function addToCart(product, quantity) {
     title: 'Producto agregado',
     text: `Se agregaron ${quantity} unidades de ${product.name} al carrito`
   });
-
-  // Here you would add the logic to actually add the item to the cart
-  // For example, storing in localStorage or sending to an API
 }
 
 
+
+// Exportar la función para ser utilizada en el HTML
 export { loadProducts };

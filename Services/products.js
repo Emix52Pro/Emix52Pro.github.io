@@ -77,8 +77,8 @@ async function loadProductsByCategory() {
       <div class="card p-6 bg-white shadow-lg rounded-lg w-[400px] flex flex-col transition-all hover:shadow-xl m-4 flex-1">
         <div class="flex flex-col flex-1">
           <img src="${product.image}" alt="${product.name}" class="h-48 w-full object-cover mb-4 rounded">
-          <h3 class="font-bold text-xl mb-2 break-words">${product.name}</h3>
-          <p class="text-sm mb-2 break-words">${product.description}</p>
+          <h3 class="font-bold text-xl mb-2 break-words line-clamp-2">${product.name}</h3>
+          <p class="text-sm mb-2 break-words line-clamp-3">${product.description}</p>
           <div class="mt-auto">
             <p class="text-green-600 font-semibold text-lg">$${product.price}</p>
             <p class="text-gray-500">Stock: ${product.stock}</p>
@@ -96,7 +96,6 @@ async function loadProductsByCategory() {
         </div>
       </div>
     `;
-    
     
     
     

@@ -1,6 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js';
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js';
+import { addToCart as addToCartService } from './shoppingcart.js';
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -64,7 +65,7 @@ function renderCarousel(carouselId, products) {
         
         <div class="mt-auto">
           <p class="text-green-600 font-semibold text-lg">$${product.price}</p>
-          <p class="text-gray-500">Stock: ${product.stock}</p>
+          <p class="text-gray-500">Stock disponible: ${product.stock}</p>
           <p class="text-gray-500">Categoría: ${product.category}</p>
           <div class="mt-4 flex items-center gap-2">
             <input type="number" 
@@ -73,8 +74,9 @@ function renderCarousel(carouselId, products) {
               max="${product.stock}" 
               value="1" 
               class="w-20 p-2 border rounded">
-            <button class="add-to-cart-btn bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded flex-grow ${isAuthenticated ? '' : 'opacity-50 cursor-not-allowed'}">
-              ${isAuthenticated ? 'Agregar al carrito' : 'Inicia sesión para comprar'}
+            <button class="add-to-cart-btn bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded flex-grow ${isAuthenticated ? '' : 'opacity-50 cursor-not-allowed'}" 
+                    ${product.stock <= 0 ? 'disabled' : ''}>
+              ${isAuthenticated ? (product.stock > 0 ? 'Agregar al carrito' : 'Sin stock') : 'Inicia sesión para comprar'}
             </button>
           </div>
         </div>
@@ -82,7 +84,7 @@ function renderCarousel(carouselId, products) {
     `;
 
     const addToCartButton = productCard.querySelector('.add-to-cart-btn');
-    if (isAuthenticated) {
+    if (isAuthenticated && product.stock > 0) {
       addToCartButton.addEventListener('click', () => {
         const quantity = parseInt(productCard.querySelector(`#quantity-${product.id}`).value);
         addToCart(product, quantity);
@@ -94,28 +96,34 @@ function renderCarousel(carouselId, products) {
 }
 
 function addToCart(product, quantity) {
+  console.log('Adding to cart:', { product, quantity });
+
+  if (!isAuthenticated) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Debes iniciar sesión para agregar productos al carrito'
+    });
+    return;
+  }
+
+  // Direct stock validation from the product object
   if (quantity > product.stock) {
     Swal.fire({
       icon: 'error',
       title: 'Error',
-      text: 'No puedes añadir más que el stock disponible.'
+      text: `Solo hay ${product.stock} unidades disponibles`
     });
     return;
   }
 
-  if (quantity < 1) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error', 
-      text: 'La cantidad no puede ser menor a 1.'
-    });
-    return;
-  }
+  // Use the imported service function
+  addToCartService(product, quantity);
 
   Swal.fire({
     icon: 'success',
-    title: 'Producto agregado',
-    text: `Se agregaron ${quantity} unidades de ${product.name} al carrito`
+    title: 'Éxito',
+    text: `Se agregaron ${quantity} unidades al carrito`
   });
 }
 

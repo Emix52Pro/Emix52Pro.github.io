@@ -107,7 +107,15 @@ function addToCart(product, quantity) {
     return;
   }
 
-  // Direct stock validation from the product object
+  if (quantity <= 0) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'La cantidad debe ser mayor a 0'
+    });
+    return;
+  }
+
   if (quantity > product.stock) {
     Swal.fire({
       icon: 'error',
@@ -117,7 +125,6 @@ function addToCart(product, quantity) {
     return;
   }
 
-  // Use the imported service function
   addToCartService(product, quantity);
 
   Swal.fire({
@@ -126,6 +133,7 @@ function addToCart(product, quantity) {
     text: `Se agregaron ${quantity} unidades al carrito`
   });
 }
+
 
 
 

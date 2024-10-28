@@ -42,15 +42,35 @@ export function getCartItems() {
 }
 
 export function updateCartItem(productId, newQuantity) {
+  if (newQuantity <= 0) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'La cantidad debe ser mayor a 0'
+    });
+    return;
+  }
+
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   const item = cart.find(item => item.id === productId);
   
   if (item) {
+    if (newQuantity > item.stock) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: `Solo hay ${item.stock} unidades disponibles`
+      });
+      return cart;
+    }
+    
     item.quantity = parseInt(newQuantity);
     localStorage.setItem('cart', JSON.stringify(cart));
   }
   return cart;
 }
+
+
 
 export function removeFromCart(productId) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];

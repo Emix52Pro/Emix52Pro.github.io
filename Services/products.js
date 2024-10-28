@@ -74,24 +74,33 @@ async function loadProductsByCategory() {
     querySnapshot.forEach((doc) => {
       const product = doc.data();
       const productCard = `
-        <div class="card p-4 bg-white shadow-lg rounded-lg w-48">
-          <img src="${product.image}" alt="${product.name}" class="h-32 w-full object-cover mb-4 rounded">
-          <h3 class="font-bold">${product.name}</h3>
-          <p class="text-sm">${product.description}</p>
-          <p class="text-green-600 font-semibold">$${product.price}</p>
-          <p class="text-gray-500">Stock: ${product.stock}</p>
-          <p class="text-gray-500">Categoría: ${product.category}</p>
-          <p class="text-gray-500">Estado: ${product.status}</p>
-          <div class="mt-4 flex space-x-2">
-            <button onclick="editarProducto('${doc.id}')" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded">
-              Editar
-            </button>
-            <button onclick="eliminarProducto('${doc.id}')" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded">
-              Eliminar
-            </button>
+      <div class="card p-6 bg-white shadow-lg rounded-lg w-[400px] flex flex-col transition-all hover:shadow-xl m-4 flex-1">
+        <div class="flex flex-col flex-1">
+          <img src="${product.image}" alt="${product.name}" class="h-48 w-full object-cover mb-4 rounded">
+          <h3 class="font-bold text-xl mb-2 break-words">${product.name}</h3>
+          <p class="text-sm mb-2 break-words">${product.description}</p>
+          <div class="mt-auto">
+            <p class="text-green-600 font-semibold text-lg">$${product.price}</p>
+            <p class="text-gray-500">Stock: ${product.stock}</p>
+            <p class="text-gray-500">Categoría: ${product.category}</p>
+            <p class="text-gray-500">Estado: ${product.status}</p>
           </div>
         </div>
-      `;
+        <div class="mt-4 flex space-x-2 justify-center">
+          <button onclick="editarProducto('${doc.id}')" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            Editar
+          </button>
+          <button onclick="eliminarProducto('${doc.id}')" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">
+            Eliminar
+          </button>
+        </div>
+      </div>
+    `;
+    
+    
+    
+    
+    
 
       if (product.category === 'jabon') {
         document.getElementById("jabones-carousel").innerHTML += productCard;
